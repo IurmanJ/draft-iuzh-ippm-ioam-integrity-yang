@@ -5,8 +5,8 @@
 ippm                                                           J. Iurman
 Internet-Draft                                       University of Liege
 Intended status: Standards Track                                 T. Zhou
-Expires: 27 February 2025                                         Huawei
-                                                          26 August 2024
+Expires: 4 March 2025                                             Huawei
+                                                          31 August 2024
 
 
      A YANG Data Model for In Situ Operations, Administration, and
@@ -39,7 +39,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 27 February 2025.
+   This Internet-Draft will expire on 4 March 2025.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Iurman & Zhou           Expires 27 February 2025                [Page 1]
+Iurman & Zhou             Expires 4 March 2025                  [Page 1]
 
 Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
 
@@ -71,20 +71,26 @@ Table of Contents
      2.2.  Abbreviations . . . . . . . . . . . . . . . . . . . . . .   3
      2.3.  Terminology . . . . . . . . . . . . . . . . . . . . . . .   3
      2.4.  Tree Diagrams . . . . . . . . . . . . . . . . . . . . . .   3
-   3.  Design of the IOAM Integrity YANG Data Model  . . . . . . . .   3
-     3.1.  Overview  . . . . . . . . . . . . . . . . . . . . . . . .   3
+   3.  Design of the IOAM Integrity YANG Data Model  . . . . . . . .   4
+     3.1.  Overview  . . . . . . . . . . . . . . . . . . . . . . . .   4
      3.2.  Integrity Protected Pre-allocated Tracing Profile . . . .   4
-     3.3.  Integrity Protected Incremental Tracing Profile . . . . .   4
+     3.3.  Integrity Protected Incremental Tracing Profile . . . . .   5
      3.4.  Integrity Protected Proof of Transit Profile  . . . . . .   5
      3.5.  Integrity Protected Edge-to-Edge Profile  . . . . . . . .   5
-   4.  IOAM Integrity YANG Module  . . . . . . . . . . . . . . . . .   5
+   4.  IOAM Integrity YANG Module  . . . . . . . . . . . . . . . . .   6
    5.  Security Considerations . . . . . . . . . . . . . . . . . . .  11
    6.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  11
    7.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  11
-   8.  References  . . . . . . . . . . . . . . . . . . . . . . . . .  11
-     8.1.  Normative References  . . . . . . . . . . . . . . . . . .  11
-     8.2.  Informative References  . . . . . . . . . . . . . . . . .  12
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  12
+   8.  Normative References  . . . . . . . . . . . . . . . . . . . .  11
+   Appendix A.  An Example of the Integrity Protected Pre-allocated
+           Tracing Profile . . . . . . . . . . . . . . . . . . . . .  13
+   Appendix B.  An Example of the Integrity Protected Incremental
+           Tracing Profile . . . . . . . . . . . . . . . . . . . . .  13
+   Appendix C.  An Example of the Integrity Protected Proof of Transit
+           Profile . . . . . . . . . . . . . . . . . . . . . . . . .  13
+   Appendix D.  An Example of the Integrity Protected Edge-to-Edge
+           Profile . . . . . . . . . . . . . . . . . . . . . . . . .  13
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  13
 
 1.  Introduction
 
@@ -99,21 +105,21 @@ Table of Contents
    [RFC7950].  This YANG data model supports four IOAM Integrity
    Protected Options, which are as follows:
 
+
+
+
+
+Iurman & Zhou             Expires 4 March 2025                  [Page 2]
+
+Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
+
+
    *  Integrity Protected Incremental Trace-Option
       [I-D.ietf-ippm-ioam-data-integrity]
    *  Integrity Protected Pre-allocated Trace-Option
       [I-D.ietf-ippm-ioam-data-integrity]
    *  Integrity Protected Proof of Transit (POT) Option
       [I-D.ietf-ippm-ioam-data-integrity]
-
-
-
-
-Iurman & Zhou           Expires 27 February 2025                [Page 2]
-
-Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
-
-
    *  Integrity Protected Edge-to-Edge (E2E) Option
       [I-D.ietf-ippm-ioam-data-integrity]
 
@@ -153,22 +159,23 @@ Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
    Tree diagrams used in this document follow the notation defined in
    [RFC8340].
 
+
+
+
+
+
+
+Iurman & Zhou             Expires 4 March 2025                  [Page 3]
+
+Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
+
+
 3.  Design of the IOAM Integrity YANG Data Model
 
 3.1.  Overview
 
    The IOAM Integrity model is organized as a list of profiles, as shown
    in the following figure.
-
-
-
-
-
-
-Iurman & Zhou           Expires 27 February 2025                [Page 3]
-
-Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
-
 
    module: ietf-ioam-integrity
 
@@ -181,11 +188,10 @@ Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
        |  ...
        +--rw int-e2e-profile! {int-edge-to-edge}?
 
-   This document uses the "ietf-ioam" YANG module (RFC9617) and augments
-   its definition of a profile.  The supported sub-profiles are
-   indicated by four defined features, i.e., "int-incremental-trace",
-   "int-preallocated-trace", "int-proof-of-transit", and "int-edge-to-
-   edge".
+   This document uses the "ietf-ioam" YANG module [RFC9617] and augments
+   its definition of a profile.  The supported profiles are indicated by
+   four defined features, i.e., "int-incremental-trace", "int-
+   preallocated-trace", "int-proof-of-transit", and "int-edge-to-edge".
 
    The YANG data model in this document conforms to the Network
    Management Datastore Architecture (NMDA) defined in [RFC8342].
@@ -195,7 +201,7 @@ Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
    The "int-preallocated-tracing-profile" parameter contains the
    detailed information for the pre-allocated tracing data with
    integrity protection.  This information is the same as for the Pre-
-   allocated Tracing Profile; see RFC9617 , Sec. 3.2.  This information
+   allocated Tracing Profile; see [RFC9617], Sec. 3.2.  This information
    also includes:
 
    int-method:  indicates which Integrity Protection Method is used.
@@ -208,23 +214,24 @@ Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
       +--rw max-length?    uint32
       +--rw int-method?    method-type
 
+
+
+
+
+
+
+
+Iurman & Zhou             Expires 4 March 2025                  [Page 4]
+
+Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
+
+
 3.3.  Integrity Protected Incremental Tracing Profile
 
    The "int-incremental-tracing-profile" parameter contains the detailed
    information for the incremental tracing data with integrity
    protection.  This information is the same as for the Integrity
    Protected Pre-allocated Tracing Profile; see Section 3.2.
-
-
-
-
-
-
-
-Iurman & Zhou           Expires 27 February 2025                [Page 4]
-
-Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
-
 
    +--rw int-incremental-tracing-profile! {int-incremental-trace}?
       +--rw node-action?   ioam-node-action
@@ -239,7 +246,7 @@ Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
    The "int-pot-profile" parameter is intended to contain the detailed
    information for the proof of transit data with integrity protection.
    This information is the same as for the Proof of Transit Profile; see
-   RFC9617 , Sec. 3.5.  This information also includes:
+   [RFC9617], Sec. 3.5.  This information also includes:
 
    node-action:  the same semantic as provided in Section 3.2.
    int-method:  the same semantic as provided in Section 3.2.
@@ -254,7 +261,7 @@ Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
 
    The "int-e2e-profile" parameter contains the detailed information for
    the edge-to-edge data with integrity protection.  This information is
-   the same as for the Edge-to-Edge Profile; see RFC9617 , Sec. 3.6.
+   the same as for the Edge-to-Edge Profile; see [RFC9617], Sec. 3.6.
    This information also includes:
 
    int-method:  the same semantic as provided in Section 3.2.
@@ -266,23 +273,22 @@ Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
       |  +--rw e2e-type*        ioam-e2e-type
       +--rw int-method?    method-type
 
-4.  IOAM Integrity YANG Module
-
-   The "ietf-ioam-integrity" module defined in this document imports the
-   "ietf-ioam" module defined in RFC9617 . This document also references
-   [I-D.ietf-ippm-ioam-data-integrity].
 
 
 
 
-
-
-Iurman & Zhou           Expires 27 February 2025                [Page 5]
+Iurman & Zhou             Expires 4 March 2025                  [Page 5]
 
 Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
 
 
-   <CODE BEGINS> file "ietf-ioam-integrity@2024-08-23.yang"
+4.  IOAM Integrity YANG Module
+
+   The "ietf-ioam-integrity" module defined in this document imports the
+   "ietf-ioam" module defined in [RFC9617].  This document also
+   references [I-D.ietf-ippm-ioam-data-integrity].
+
+   <CODE BEGINS> file "ietf-ioam-integrity@2024-08-31.yang"
    module ietf-ioam-integrity {
      yang-version 1.1;
      namespace "urn:ietf:params:xml:ns:yang:ietf-ioam-integrity";
@@ -324,21 +330,21 @@ Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
         without modification, is permitted pursuant to, and subject to
         the license terms contained in, the Revised BSD License set
         forth in Section 4.c of the IETF Trust's Legal Provisions
+
+
+
+Iurman & Zhou             Expires 4 March 2025                  [Page 6]
+
+Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
+
+
         Relating to IETF Documents
         (https://trustee.ietf.org/license-info).
 
         This version of this YANG module is part of RFC XXXX; see the
         RFC itself for full legal notices.";
 
-
-
-
-Iurman & Zhou           Expires 27 February 2025                [Page 6]
-
-Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
-
-
-     revision 2024-08-23 {
+     revision 2024-08-31 {
        description
          "Initial revision.";
        reference
@@ -381,19 +387,18 @@ Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
           Administration, and Maintenance (IOAM) Data Fields";
      }
 
+
+
+Iurman & Zhou             Expires 4 March 2025                  [Page 7]
+
+Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
+
+
      feature int-edge-to-edge
      {
        description
          "This feature indicates that the Integrity Protected
           Edge-to-Edge Option is supported.";
-
-
-
-Iurman & Zhou           Expires 27 February 2025                [Page 7]
-
-Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
-
-
        reference
          "RFC YYYY: Integrity Protection of In Situ Operations,
           Administration, and Maintenance (IOAM) Data Fields";
@@ -437,19 +442,19 @@ Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
      augment "/ioam:ioam/ioam:profiles/ioam:profile" {
        description
          "This augmentation adds 4 profiles for the Integrity Protected
+
+
+
+Iurman & Zhou             Expires 4 March 2025                  [Page 8]
+
+Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
+
+
           Options.";
 
        container int-incremental-tracing-profile {
          if-feature "int-incremental-trace";
          presence
-
-
-
-Iurman & Zhou           Expires 27 February 2025                [Page 8]
-
-Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
-
-
            "Enables the Integrity Protected Incremental Trace-Option.";
          description
            "This container describes the profile for the Integrity
@@ -493,18 +498,18 @@ Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
        container int-pot-profile {
          if-feature "int-proof-of-transit";
          presence
+
+
+
+Iurman & Zhou             Expires 4 March 2025                  [Page 9]
+
+Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
+
+
            "Enables the Integrity Protected Proof of Transit Option.";
          description
            "This container describes the profile for the Integrity
             Protected Proof of Transit Option.";
-
-
-
-
-Iurman & Zhou           Expires 27 February 2025                [Page 9]
-
-Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
-
 
          leaf use-namespace {
            type ioam:ioam-namespace;
@@ -550,18 +555,17 @@ Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
 
          uses ioam:ioam-e2e-profile;
 
-         leaf int-method {
-           when "derived-from-or-self(../node-action,
-              'ioam:action-encapsulate')";
-           type method-type;
 
 
-
-Iurman & Zhou           Expires 27 February 2025               [Page 10]
+Iurman & Zhou             Expires 4 March 2025                 [Page 10]
 
 Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
 
 
+         leaf int-method {
+           when "derived-from-or-self(../node-action,
+              'ioam:action-encapsulate')";
+           type method-type;
            default "method-1";
            description
              "This object indicates the Integrity Protection Method for
@@ -574,7 +578,7 @@ Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
 
 5.  Security Considerations
 
-   Security considerations listed in RFC9617 also apply here.  This
+   Security considerations listed in [RFC9617] also apply here.  This
    document does not introduce new security considerations.
 
 6.  IANA Considerations
@@ -603,21 +607,20 @@ Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
 
    TBD
 
-8.  References
-
-8.1.  Normative References
-
-   [I-D.ietf-ippm-ioam-data-integrity]
-              Brockners, F., Bhandari, S., Mizrahi, T., and J. Iurman,
-              "Integrity Protection of In-situ OAM Data Fields", Work in
+8.  Normative References
 
 
 
-Iurman & Zhou           Expires 27 February 2025               [Page 11]
+
+
+Iurman & Zhou             Expires 4 March 2025                 [Page 11]
 
 Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
 
 
+   [I-D.ietf-ippm-ioam-data-integrity]
+              Brockners, F., Bhandari, S., Mizrahi, T., and J. Iurman,
+              "Integrity Protection of In-situ OAM Data Fields", Work in
               Progress, Internet-Draft, draft-ietf-ippm-ioam-data-
               integrity-11, 19 August 2024,
               <https://datatracker.ietf.org/doc/html/draft-ietf-ippm-
@@ -654,7 +657,41 @@ Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
               (NMDA)", RFC 8342, DOI 10.17487/RFC8342, March 2018,
               <https://www.rfc-editor.org/info/rfc8342>.
 
-8.2.  Informative References
+   [RFC9617]  Zhou, T., Ed., Guichard, J., Brockners, F., and S.
+              Raghavan, "A YANG Data Model for In Situ Operations,
+              Administration, and Maintenance (IOAM)", RFC 9617,
+              DOI 10.17487/RFC9617, August 2024,
+              <https://www.rfc-editor.org/info/rfc9617>.
+
+
+
+
+
+
+
+Iurman & Zhou             Expires 4 March 2025                 [Page 12]
+
+Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
+
+
+Appendix A.  An Example of the Integrity Protected Pre-allocated Tracing
+             Profile
+
+   TBD
+
+Appendix B.  An Example of the Integrity Protected Incremental Tracing
+             Profile
+
+   TBD
+
+Appendix C.  An Example of the Integrity Protected Proof of Transit
+             Profile
+
+   TBD
+
+Appendix D.  An Example of the Integrity Protected Edge-to-Edge Profile
+
+   TBD
 
 Authors' Addresses
 
@@ -664,14 +701,6 @@ Authors' Addresses
    4000 Sart-Tilman
    Belgium
    Email: justin.iurman@uliege.be
-
-
-
-
-
-Iurman & Zhou           Expires 27 February 2025               [Page 12]
-
-Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
 
 
    Tianran Zhou
@@ -696,33 +725,4 @@ Internet-Draft    YANG Model for IOAM Integrity Options      August 2024
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Iurman & Zhou           Expires 27 February 2025               [Page 13]
+Iurman & Zhou             Expires 4 March 2025                 [Page 13]

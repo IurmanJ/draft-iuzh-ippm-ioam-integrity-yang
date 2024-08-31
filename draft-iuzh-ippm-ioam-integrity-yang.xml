@@ -7,7 +7,7 @@
 <!ENTITY RFC8174 SYSTEM "http://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.8174.xml">
 <!ENTITY RFC8340 SYSTEM "http://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.8340.xml">
 <!ENTITY RFC8342 SYSTEM "http://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.8342.xml">
-<!--TODO <!ENTITY RFC9617 SYSTEM "http://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.9617.xml">-->
+<!ENTITY RFC9617 SYSTEM "http://xml2rfc.tools.ietf.org/public/rfc/bibxml/reference.RFC.9617.xml">
 <!ENTITY I-D.ietf-ippm-ioam-data-integrity SYSTEM "http://xml2rfc.tools.ietf.org/public/rfc/bibxml-ids/reference.I-D.ietf-ippm-ioam-data-integrity.xml">
 ]>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
@@ -51,7 +51,7 @@
       </address>
     </author>
 
-    <date day="26" month="August" year="2024"/>
+    <date day="31" month="August" year="2024"/>
 
     <area>ops</area>
     <workgroup>ippm</workgroup>
@@ -159,10 +159,10 @@ module: ietf-ioam-integrity
 ]]>
         </sourcecode>
 
-        <t>This document uses the "ietf-ioam" YANG module (RFC9617)
-        <!--TODO <xref target="RFC9617">"ietf-ioam" YANG module</xref>-->
-        and augments its definition of a profile. The supported sub-profiles are
-        indicated by four defined features, i.e., "int-incremental-trace",
+        <t>This document uses the
+        <xref target="RFC9617">"ietf-ioam" YANG module</xref> and augments its
+        definition of a profile. The supported profiles are indicated by
+        four defined features, i.e., "int-incremental-trace",
         "int-preallocated-trace", "int-proof-of-transit", and
         "int-edge-to-edge".</t>
 
@@ -176,8 +176,8 @@ module: ietf-ioam-integrity
         <t>The "int-preallocated-tracing-profile" parameter contains the
         detailed information for the pre-allocated tracing data with integrity
         protection. This information is the same as for the Pre-allocated
-        Tracing Profile; see RFC9617 <!--TODO <xref target="RFC9617"/>-->,
-        Sec. 3.2. This information also includes:
+        Tracing Profile; see <xref target="RFC9617"/>, Sec. 3.2. This
+        information also includes:
           <dl spacing="compact">
             <dt>int-method:</dt><dd>indicates which Integrity Protection Method
             is used.</dd>
@@ -221,8 +221,7 @@ module: ietf-ioam-integrity
         <t>The "int-pot-profile" parameter is intended to contain the detailed
         information for the proof of transit data with integrity protection.
         This information is the same as for the Proof of Transit Profile; see
-        RFC9617 <!--TODO <xref target="RFC9617"/>-->, Sec. 3.5. This information
-        also includes:
+        <xref target="RFC9617"/>, Sec. 3.5. This information also includes:
           <dl spacing="compact">
             <dt>node-action:</dt><dd>the same semantic as provided in
             <xref target="int-prealloc-trace-profile"/>.</dd>
@@ -245,7 +244,7 @@ module: ietf-ioam-integrity
       <section title="Integrity Protected Edge-to-Edge Profile">
         <t>The "int-e2e-profile" parameter contains the detailed information for
         the edge-to-edge data with integrity protection. This information is the
-        same as for the Edge-to-Edge Profile; see RFC9617 <!--TODO <xref target="RFC9617"/>-->,
+        same as for the Edge-to-Edge Profile; see <xref target="RFC9617"/>,
         Sec. 3.6. This information also includes:
           <dl spacing="compact">
             <dt>int-method:</dt><dd>the same semantic as provided in
@@ -268,10 +267,10 @@ module: ietf-ioam-integrity
 
     <section anchor="YANGModule" title="IOAM Integrity YANG Module">
       <t>The "ietf-ioam-integrity" module defined in this document imports
-      the "ietf-ioam" module defined in RFC9617 <!--TODO <xref target="RFC9617"/>-->. This document
+      the "ietf-ioam" module defined in <xref target="RFC9617"/>. This document
       also references <xref target="I-D.ietf-ippm-ioam-data-integrity"/>.</t>
 
-      <sourcecode name="ietf-ioam-integrity@2024-08-23.yang"
+      <sourcecode name="ietf-ioam-integrity@2024-08-31.yang"
                   type="yang" markers="true">
 <![CDATA[
 module ietf-ioam-integrity {
@@ -321,7 +320,7 @@ module ietf-ioam-integrity {
      This version of this YANG module is part of RFC XXXX; see the
      RFC itself for full legal notices.";
 
-  revision 2024-08-23 {
+  revision 2024-08-31 {
     description
       "Initial revision.";
     reference
@@ -526,7 +525,7 @@ module ietf-ioam-integrity {
     </section>
 
     <section title="Security Considerations">
-      <t>Security considerations listed in RFC9617 <!--TODO <xref target="RFC9617"/>--> also apply
+      <t>Security considerations listed in <xref target="RFC9617"/> also apply
       here. This document does not introduce new security considerations.</t>
     </section>
 
@@ -571,11 +570,24 @@ module ietf-ioam-integrity {
       &RFC8174;
       &RFC8340;
       &RFC8342;
-      <!--TODO &RFC9617;-->
+      &RFC9617;
       &I-D.ietf-ippm-ioam-data-integrity;
     </references>
 
-    <references title="Informative References">
-    </references>
+    <section title="An Example of the Integrity Protected Pre-allocated Tracing Profile">
+      <t>TBD</t>
+    </section>
+
+    <section title="An Example of the Integrity Protected Incremental Tracing Profile">
+      <t>TBD</t>
+    </section>
+
+    <section title="An Example of the Integrity Protected Proof of Transit Profile">
+      <t>TBD</t>
+    </section>
+
+    <section title="An Example of the Integrity Protected Edge-to-Edge Profile">
+      <t>TBD</t>
+    </section>
   </back>
 </rfc>
